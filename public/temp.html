@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+</head>
+<body>
+    <button onclick="sendotp()">Send OTP</button>
+</body>
+<script>
+    function sendotp(){
+        Email.send({
+            SecureToken : "e3da9cbf-f901-4ce7-853c-fe9aaea319d9",
+            To : 'myworkonlinethasun@gmail.com',
+            From : 'ajinx.builder@zohomail.com',
+            Subject : "OTP from AJinx",
+            Body : 'HEY'
+        }).then(
+      message => console.log(message)
+    );
+    }
+</script>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedbacks</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.0/font/bootstrap-icons.css">
+</head>
+<body>
+    <div class="container">
+        <div class="search">
+            <input type="text" id="search" placeholder="Search">
+            <i id="s-ico" class="bi bi-arrow-right"></i>
+        </div>
+        <div class="feeedbacks">
+            <div class="msg">
+                <div class="content">
+                    <a href="mailto:null@gmail" target="_blank">
+                        <h1 class="email">null@gmail.com</h1>
+                    </a>
+                    <h1 class="class">Problem</h1>
+                    <h1 class="msg-c">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium sequi mollitia
+                        velit
+                        blanditiis nihil animi qui officiis accusantium rem temporibus, non quod, culpa asperiores, possimus
+                        labore
+                        voluptates aperiam perspiciatis adipisci.</h1>
+                </div>
+                <div class="reply">Reply</div>
+            </div>
+        </div>
+    </div>
+     <script src="/socket.io/socket.io.js"></script>
+  <script defer>
+  var socket = io();
+    socket.emit('requestFeedbacks', "requestingFeedbacks" (responce) => {
+      console.log(responce);
+      console.log('ee')
+      });
+    
+    
+  socket.on("requestingFirebaseFeedbacks", (arg, callback) => {
+    window.alert(arg);
+  })
+  
+  
+  </script>
+</body>
+<style>
+    body{
+        background-color: #E3F2FD;
+    }
+    .search{
+        display: flex;
+        justify-content: center;
+        margin-top: 3%;
+        width: 100%;
+        margin-bottom: 60px;
+    }
+    #search{
+        width: 450px;
+        height: 35px;
+        padding: 0px 10px;
+        border: 1px solid gray;
+        outline: 0;
+        border-radius: 5px;
+        background-color: #333;
+        color: #fff;
+        margin-left: 10px;
+        margin-right: 10px;
+        transition: .3s;
+    }
+    #search:hover{
+        border: 1px solid #0095ff;
+    }
+    #search:focus{
+        border: 1px solid #0fff5b;
+    }
+    #s-ico{
+        display: none;
+    }
+    .msg{
+        width: 42%;
+        height: auto;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .content{
+        width: 100%;
+        height: auto;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 7px;
+        background-color: #333;
+        color: #fff;
+        font-family: sans-serif;
+        padding: 12px;
+        margin-top: 12px;
+        margin-bottom: 12px;
+        border-radius: 20px;
+        border: 3px solid  rgba(109, 109, 109, 0.042);
+        transition: .3s;
+    }
+    .email{
+        margin: 0;
+        color: rgb(76, 255, 171);
+        transition: width .3s ease;
+    }
+    .email:hover{
+        text-decoration: underline;
+    }
+    a{
+        text-decoration: none;
+    }
+    .class{
+        margin: 0;
+        margin-top: 5px;
+        padding: 5px;
+        padding-left: 10px;
+        padding-right: 10px;
+        width: max-content;
+        background-color: rgb(82, 82, 82);
+    }
+    .msg-c{
+        margin: 0;
+        margin-top: 3px;
+    }
+    .reply{
+        font-family: sans-serif;
+        margin: 0;
+        display: flex;
+        width: max-content;
+        margin-right: 0px;
+        margin-left: auto;
+        transition: all .3s ease ;
+        color: rgb(247, 206, 206);
+        cursor: pointer;
+        margin-top: -37px;
+    }
+    .msg:hover .reply{
+        opacity: 1;
+    }
+    .reply:hover{
+       background-color: rgba(34, 34, 34, 0.614);
+       padding: 10px;
+       padding-left: 20px;
+       padding-right: 20px;
+       color: rgb(247, 162, 162);
+    }
+</style>
+<script>
+    document.querySelector('#search').addEventListener('input' ,filterList);
+
+    function filterList(){
+        const searchInput = document.querySelector
+        ('#search');
+        const filter = searchInput.value.toLowerCase();
+        const listItems = document.querySelectorAll('.msg');
+
+        listItems.forEach((item) =>{
+            let text = item.textContent;
+            if(text.toLowerCase().includes(filter.
+            toLowerCase())){
+                item.style.display = '';
+            }
+            else{
+                item.style.display = 'none';
+            }
+        });
+    }
+</script>
+    <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase.js"></script>
+  <script src="/node_modules/firebase/firebase-database.js"></script>
+  <script defer type="module" src="/firebase.js"></script>
+</html>

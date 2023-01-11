@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajinx</title>
+</head>
+
+<body onload="SetItems()">
+    <div class="container">
+        <ul class="box-area">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <div class="box">
+            <div class="error">
+                <span>Error !</span>
+            </div>
+            <div class="photo">A</div>
+            <div class="name">Ajinx official</div>
+            <div class="credit">Ajinx stands for freedom and privacy and has many easy to use features.</div>
+            <button class="request"
+                onclick="document.querySelector('body > div > div > .form').classList.toggle('active');document.querySelector('.credit').classList.toggle('inactive');document.querySelector('.request').classList.toggle('inactive');document.querySelector('.link').classList.toggle('inactive');usernameinput.focus();">Request
+                to Join</button>
+            <div class="form">
+                <input type="text" id="username" required>
+                <label for="username" class="userlabel">Enter your username</label>
+                <input type="text" id="passcode" required>
+                <label for="passcode" class="passlabel">Enter your passcode</label>
+                <button class="join" onclick="start()">join</button>
+            </div>
+            <div class="link"><a href="http://ajinx.glitch.me">Try it</a></div>
+
+        </div>
+    </div>
+</body>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        transition: .4s all;
+    }
+
+    body {
+        font-family: 'Roboto', sans-serif;
+        background-color: #040d21;
+    }
+
+    .container {
+        width: 100%;
+        height: 100vh;
+        background: url("https://cdn.glitch.global/ccc8c57f-ca9f-4e50-aded-b843a7073956/glow.svg?v=1658117187418");
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 160%;
+    }
+
+    .box-area {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .box-area li {
+        position: absolute;
+        display: block;
+        list-style: none;
+        width: 15px;
+        height: 15px;
+        background: rgba(255, 255, 255, 0.2);
+        animation: animate 20s linear infinite;
+        bottom: -150px;
+        z-index: 0;
+    }
+
+    .box-area li:nth-child(1) {
+        left: 86%;
+        width: 40px;
+        height: 40px;
+        animation-delay: 0s;
+    }
+
+    .box-area li:nth-child(2) {
+        left: 12%;
+        width: 15px;
+        height: 15px;
+        animation-delay: 1.5s;
+        animation-duration: 10s;
+    }
+
+    .box-area li:nth-child(3) {
+        left: 70%;
+        width: 50px;
+        height: 50px;
+        animation-delay: 5.5s;
+    }
+
+    .box-area li:nth-child(4) {
+        left: 42%;
+        width: 75px;
+        height: 75px;
+        animation-delay: 0s;
+        animation-duration: 15s;
+    }
+
+    .box-area li:nth-child(5) {
+        left: 65%;
+        width: 20px;
+        height: 20px;
+        animation-delay: 0s;
+    }
+
+    .box-area li:nth-child(6) {
+        left: 15%;
+        width: 55px;
+        height: 55px;
+        animation-delay: 3.5s;
+    }
+
+    @keyframes animate {
+        0% {
+            transform: translateY(0) rotate(0deg);
+            opacity: 1;
+        }
+
+        100% {
+            transform: translateY(-800px) rotate(360deg);
+            opacity: 0;
+        }
+    }
+
+    .box {
+        position: relative;
+        margin: 16px auto;
+        padding: 32px 0;
+        max-width: 400px;
+        background: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 16px;
+        transition: all .15s ease .15s;
+        width: 400px;
+        height: max-content;
+        display: block;
+    }
+
+    .error{
+        color: #fff;
+        background-color: #f7115e;
+        width: 90%;
+        padding-top: 0px;
+        padding-bottom: 0px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 10px;
+        font-size: 1.5rem;
+        border-radius: .75rem;
+        transform: scale(0);
+        height: 0;
+    }
+
+    .error.active{
+        transform: scale(1);
+        height: auto;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .photo {
+        width: 122px;
+        height: 122px;
+        background: #000;
+        color: #fff;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 6rem;
+        font-weight: 1000;
+        margin-left: auto;
+        margin-right: auto;
+        text-transform: uppercase;
+    }
+
+    .name {
+        font-size: 26px;
+        font-weight: bold;
+        text-transform: capitalize;
+        text-align: center;
+        margin-top: 16px;
+    }
+
+    .credit {
+        font-size: 16px;
+        text-align: center;
+        margin: 10px;
+        max-width: 360px;
+    }
+
+    .credit.inactive {
+        display: none;
+    }
+
+    .request {
+        position: relative;
+        background-color: #4d77ff;
+        padding: 14px 34px;
+        border-radius: 100px;
+        text-decoration: none;
+        color: #fff;
+        font-weight: bold;
+        font-family: Arial;
+        font-size: 15px;
+        border: none;
+        overflow: hidden;
+        cursor: pointer;
+        box-shadow: 0 10px 20px rgba(77, 119, 255, 0.4);
+        margin-right: auto;
+        margin-left: auto;
+        display: flex;
+    }
+
+    .request.inactive {
+        display: none;
+    }
+
+    .request::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 50%;
+        background-color: rgba(255, 255, 255, 0.2);
+        transform: translateX(-250%) skewX(-30deg);
+        transition: transform 0.7s ease-in-out;
+    }
+
+    .request:hover::before {
+        transform: translateX(200%) skewX(-30deg);
+    }
+
+    .link {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+    .link.inactive {
+        display: none;
+    }
+
+    .link a {
+        color: #7d7f81;
+        font-size: 14px;
+        text-decoration: none;
+        font-weight: 600;
+    }
+
+    .link:hover a {
+        text-decoration: underline;
+    }
+
+    #username,
+    #passcode {
+        font-size: 1rem;
+        width: 80%;
+        border: 1px solid #9a9da0;
+        outline: 2px solid #4d77ff;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        padding-left: 14px;
+        padding-top: 11px;
+        padding-bottom: 11px;
+        border-radius: 0.75rem;
+        outline: 0;
+    }
+
+    #username:hover,
+    #passcode:hover {
+        border: 1px solid #4d77ff;
+    }
+
+    #username:focus {
+        border: 1px solid #4d77ff;
+        box-shadow: inset 0 0 0 1px #4d77ff;
+    }
+
+    .form {
+        transition: .4s;
+        transform: scale(0);
+        height: 0;
+    }
+
+    .form.active {
+        transform: scale(1);
+        height: max-content;
+        margin-top: 20px;
+    }
+
+    .form .userlabel,
+    .form .passlabel {
+        display: block;
+        padding: 0 .25rem;
+        position: relative;
+        left: 2.75rem;
+        top: -30px;
+        background-color: #fff;
+        font-size: 1rem;
+        font-weight: 400;
+        color: #a2acb4;
+        transition: transform .15s ease-out, color .15s ease-out;
+        cursor: text;
+        pointer-events: none;
+        transform-origin: left center;
+        white-space: nowrap;
+        width: max-content;
+    }
+
+    #username:hover~.userlabel {
+        color: #4d77ff;
+    }
+
+    #username:focus~.userlabel,
+    #username:valid~.userlabel {
+        color: #4d77ff;
+        transform: scale(0.75) translate(-0.5rem, -1.75rem);
+    }
+
+    #passcode:hover~.passlabel {
+        color: #4d77ff;
+    }
+
+    #passcode:focus~.passlabel,
+    #passcode:valid~.passlabel {
+        color: #4d77ff;
+        transform: scale(0.75) translate(-0.5rem, -1.75rem);
+    }
+
+    .join {
+        background-color: #4d77ff;
+        font-size: 1rem;
+        text-transform: uppercase;
+        color: #fff;
+        border-radius: 0.75rem;
+        height: 3.5rem;
+        width: 80%;
+        border: 0;
+        outline: 0;
+        font-family: sans-serif;
+        margin-right: auto;
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+
+    .join:hover{
+        background: #3967fd;
+    }
+</style>
+<script>
+    var url = window.location.href;
+    var roomname = url.split('?').pop().split('!')[0];
+    var pass = url.split('!')[1];
+    function SetItems() {
+        document.querySelector("body > div > div > div.photo").innerText = roomname[0];
+        document.querySelector("body > div > div > div.name").innerText = roomname;
+    }
+
+    var usernameinput = document.getElementById('username');
+    var passcodeinput = document.getElementById('passcode');
+    function start(){
+        if (usernameinput.value.length == 0){
+            document.querySelector(".error").classList.add('active');
+            setTimeout(function () {
+                document.querySelector(".error").classList.remove('active');
+             }, 2000);
+        }
+        if (passcodeinput.value != parseInt(pass, 2)){
+            document.querySelector(".error").classList.add('active');
+            setTimeout(function () {
+                document.querySelector(".error").classList.remove('active');
+             }, 2000);
+        }
+        if (usernameinput.value.length != 0 && passcodeinput.value == parseInt(pass, 2)){
+            localStorage.setItem("roomval",roomname);
+            localStorage.setItem("usernameval",usernameinput);
+            window.location.href = "/room.html";
+            return false;
+        }
+    }
+    
+    usernameinput.addEventListener('keypress', function(event){
+        if (event.key == "Enter"){
+            event.preventDefault();
+            passcodeinput.focus();
+        }
+    });
+
+    passcodeinput.addEventListener('keypress', function(event){
+        if (event.key == "Enter"){
+            event.preventDefault();
+            document.querySelector('.join').click();
+        }
+    });
+</script>
+
+</html>
