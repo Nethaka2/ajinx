@@ -1,0 +1,320 @@
+.user-settings-desktop {
+    width: 100%;
+    height: 100vh;
+    background-color: #080809b0;
+    position: relative;
+    z-index: 5;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    cursor: default;
+    animation: puff-out-center .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) both;
+}
+
+.user-settings-desktop.active{
+    animation: puff-in-center .5s cubic-bezier(0.165, 0.840, 0.440, 1.000) both;
+}
+
+.user-settings-desktop .zero-main {
+    display: block;
+    min-width: 720px;
+}
+
+.user-settings-desktop .zero-main .zero {
+    display: flex;
+    align-items: center;
+    max-width: 720px;
+}
+
+.user-settings-desktop .zero-main .zero p {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.user-settings-desktop .zero-main .zero .first-block {
+    display: block;
+    cursor: pointer;
+}
+
+.user-settings-desktop .zero-main .zero .first-block i {
+    min-width: 36px;
+    min-height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #b9bbbe;
+    border-radius: 50%;
+    font-size: 14px;
+    color: #b9bbbe;
+    cursor: pointer;
+}
+
+.user-settings-desktop .zero-main .zero .first-block:hover i {
+    background-color: hsl(210, calc(1 * 2.9%), 12.7%);
+    border: 2px solid #fff;
+}
+
+.user-settings-desktop .zero-main .zero .first-block p {
+    color: #b9bbbe;
+    margin-top: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.user-settings-desktop .zero-main .zero .first-block:hover p {
+    color: #fff;
+}
+
+.user-settings-desktop .zero-main .first {
+    max-width: 660px;
+    margin-top: -20px;
+    background-color: #202225;
+    border-radius: 8px;
+    padding-bottom: 15px;
+}
+
+.user-settings-desktop .zero-main .first .usd-main-header {
+    width: 660px;
+    height: 100px;
+    background-color: #5865f2;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.user-settings-desktop .zero-main .first .user-info {
+    display: flex;
+    align-items: center;
+}
+
+.user-settings-desktop .zero-main .first .user-info .usd-first-logo {
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    background-color: #5865f2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: bolder;
+    text-transform: uppercase;
+    font-size: 40px;
+    cursor: default;
+    border: 5px solid #202225;
+    margin-left: 25px;
+    margin-top: -25px;
+}
+
+.user-settings-desktop .zero-main .first .user-info p {
+    font-size: 20px;
+    color: #fff;
+    font-weight: 600;
+    text-transform: lowercase;
+    margin-left: 10px;
+    line-height: 24px;
+}
+
+.user-settings-desktop .zero-main .first .user-info button {
+    margin-left: auto;
+    margin-right: 20px;
+    padding: 2px 16px;
+    font-size: 14px;
+    color: #fff;
+    background-color: #ed4245;
+    border: none;
+    outline: 0;
+    line-height: 16px;
+    font-weight: 500;
+    height: 32px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.user-settings-desktop .zero-main .first .user-info button:hover {
+    background-color: #aa2d2f;
+}
+
+.user-settings-desktop .zero-main .first .usd-first-edit {
+    background: #2f3136;
+    margin-right: 15px;
+    margin-left: 15px;
+    border-radius: 8px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    padding: 16px;
+    margin-top: 20px;
+}
+
+.user-settings-desktop .zero-main .first .usd-first-edit p {
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #b9bbbe;
+}
+
+.user-settings-desktop .zero-main .first .usd-first-edit input{
+    padding: 0px;
+    max-height: 40px;
+    background: transparent;
+    outline: 0;
+    border: 0;
+    border-radius: 4px;
+    width: 96.5%;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 400;
+    cursor: text;
+}
+
+.user-settings-desktop .zero-main .first .usd-first-edit input:focus{
+    background-color: #202225;
+    padding: 10px;
+    color: #bcbdbf;
+    margin-top: 4px;
+}
+
+.user-settings-desktop .zero-main .first .usd-first-edit .cancel-edit{
+    display: flex;
+    align-items: center;
+    height: 0;
+    animation: flip-out-hor-bottom 0.45s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+}
+
+.user-settings-desktop .zero-main .first .usd-first-edit .cancel-edit.active{
+    animation: flip-in-hor-top 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+.user-settings-desktop .zero-main .first .usd-first-edit .cancel-edit h5{
+    margin-right: 10px;
+    margin-left: auto;
+    padding: 8px 24px;
+    font-size: 14px;
+    margin-top: 15px;
+    color: #fff;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.user-settings-desktop .zero-main .first .usd-first-edit .cancel-edit h5:hover{
+    text-decoration: underline;
+}
+
+.user-settings-desktop .zero-main .first .usd-first-edit .cancel-edit button{
+    margin-right: 0px;
+    padding: 8px 24px;
+    border: 0;
+    outline: 0;
+    font-size: 14px;
+    color: #fff;
+    background-color: #5865f2;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.user-settings-desktop .zero-main .first .usd-first-edit .cancel-edit button:hover{
+    background-color: #4955d4;
+}
+
+.user-settings-desktop .zero-main .first .usd-recent-chats{
+    background: #2f3136;
+    margin-right: 15px;
+    margin-left: 15px;
+    border-radius: 8px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    padding: 16px;
+    padding-top: 0;
+}
+
+.user-settings-desktop .zero-main .first .usd-recent-chats p{
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: #b9bbbe;
+}
+
+.user-settings-desktop .zero-main .first .usd-recent-chats li{
+    list-style: none;
+    display: inline-block;
+    padding: 2px 16px;
+    border: 2px solid #5865f2;
+    width: max-content;
+    margin: 2px;
+    border-radius: 3px;
+    color: #fff;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.user-settings-desktop .zero-main .first .usd-recent-chats li:hover{
+    background-color: #5865f2;
+}
+
+.user-settings-desktop .zero-main .first .usd-recent-chats li.default{
+    border: 0;
+    cursor: default;
+    margin: 0;
+    padding: 0;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.938);
+    font-size: 16px;
+}
+
+.user-settings-desktop .zero-main .first .usd-recent-chats li.default:hover{
+    background: none;
+}
+
+
+/* ---- Animations ---- */
+
+  @keyframes flip-in-hor-top {
+    0% {
+      -webkit-transform: rotateX(-80deg);
+              transform: rotateX(-80deg);
+      opacity: 0;
+      height: auto;
+    }
+    100% {
+      -webkit-transform: rotateX(0);
+              transform: rotateX(0);
+      opacity: 1;
+      height: auto;
+    }
+  }
+
+  @keyframes flip-out-hor-bottom {
+    0% {
+      -webkit-transform: rotateX(0);
+              transform: rotateX(0);
+      opacity: 1;
+      height: auto;
+    }
+    100% {
+      -webkit-transform: rotateX(-70deg);
+              transform: rotateX(-70deg);
+      opacity: 0;
+      height: 0;
+    }
+  }
+  
+  @keyframes puff-out-center {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes puff-in-center {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
